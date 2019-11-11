@@ -1,4 +1,4 @@
-SELECT sum(a.duration) as total_duration
+SELECT sum(a.duration) AS total_duration
 FROM assignment_submissions AS a
 JOIN students AS s
 ON s.id = a.student_id
