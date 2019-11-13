@@ -11,9 +11,9 @@ pool.query(`
 SELECT s.id, s.name, c.name AS cohort
 FROM students s
 JOIN cohorts c ON s.cohort_id = c.id
-WHERE c.name LIKE '%${process.argv[2] || ''}%'
-LIMIT ${Number(process.argv[3]) || 5};
-`)
+WHERE c.name LIKE $1
+LIMIT $2;
+`, [`%${process.argv[2] || ''}%`, Number(process.argv[3]) || 5])
   .then(res => {
     console.log(res.rows);
   })
